@@ -8,5 +8,5 @@ elseif (Test-Path Function:\TabExpansion)
 }
 else
 {
-    New-Item Function:\TabExpansionBuiltin -Value {}
+    New-Item Function:\TabExpansionBuiltin -Value {} | Out-Null
 }
