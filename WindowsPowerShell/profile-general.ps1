@@ -1,9 +1,13 @@
 ﻿function Prompt
 {
+    # 終了コードがエラーならしょんぼりする
     if (!$?)
     {
-        # 終了コードがエラーならしょんぼりする
-        Write-Host "(´・ω・｀)" -NoNewLine -ForegroundColor "Red"
+        Write-Host "( T-T)" -NoNewLine -ForegroundColor "DarkRed"
+    }
+    if (!($LastExitCode -eq 0))
+    {
+        Write-Host "( T-T)" -NoNewLine -ForegroundColor "Red"
     }
     "[$($(Get-Date).Tostring("MM-dd HH:mm:ss"))] $($executionContext.SessionState.Path.CurrentLocation)$('>' * ($nestedPromptLevel + 1))"
 }
