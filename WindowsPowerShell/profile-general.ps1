@@ -5,7 +5,7 @@
     {
         Write-Host "( T-T)" -NoNewLine -ForegroundColor "DarkRed"
     }
-    if (!($LastExitCode -eq 0))
+    if ($null -ne $LastExitCode -and $LastExitCode -ne 0)
     {
         Write-Host "( T-T)" -NoNewLine -ForegroundColor "Red"
     }
@@ -13,10 +13,11 @@
 }
 
 function ga() { git add $args }
-function gs() { git status -uno $args }
-function gf() { git fetch --prune $args }
+function gamne() { git commit --amend --no-edit $args }
+function gbr() { git branch $args }
 function gco() { git checkout $args }
-function gupsub() { git submodule update --init $args }
+function gf() { git fetch --prune $args }
 function gre() { git rebase $args }
 function grecont() { git rebase --continue $args }
-function gbr() { git branch $args }
+function gs() { git status -uno $args }
+function gupsub() { git submodule update --init $args }
